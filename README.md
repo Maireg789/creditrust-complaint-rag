@@ -61,4 +61,4 @@ Bash
 python evaluate_rag.py
 📸 Screenshots
 The CrediTrust Analyst Dashboard
-![CrediTrust AI Dashboard interface showing the chatbot answering a query about credit card complaints with cited source evidence]docs/streamlit_screenshot.png.png
+![CrediTrust AI Dashboard interface showing the chatbot answering a query about credit card complaints with cited source evidence](docs/images/streamlit_screenshot.png)
