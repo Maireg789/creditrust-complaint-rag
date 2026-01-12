@@ -26,6 +26,11 @@ with st.sidebar:
     st.code("Why are customers complaining about overdraft fees?", language=None)
     st.code("What are the main issues with Student Loans?", language=None)
     st.code("Are there delays in Money Transfers?", language=None)
+    st.divider()
+    st.markdown("### Controls")
+    if st.button("🗑️ Reset Conversation"):
+        st.session_state.messages = []
+        st.rerun()
 
 # --- 3. MAIN UI & LOGIC ---
 st.title("🏦 Customer Insight Dashboard")
