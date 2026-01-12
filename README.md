@@ -16,7 +16,7 @@ Stakeholders like Asha (Product Manager) can now use a **Streamlit Dashboard** t
 This project has evolved from experimental notebooks to a production-ready modular architecture:
 
 ```text
-rag-complaint-chatbot/
+creditrust-complaint-rag/
 ├── data/                  # Raw CSV files (Gitignored for size)
 ├── src/                   # Core Logic Modules
 │   ├── ingestion.py       # Task 1 & 2: Loading, Stratified Sampling, Chunking, Indexing
@@ -28,12 +28,32 @@ rag-complaint-chatbot/
 ├── evaluate_rag.py        # Script to test the system against "Gold Standard" questions
 ├── requirements.txt       # Project dependencies
 └── README.md              # Project documentation
+documentation
+🛠️ Technical Implementation
+Task 1: Data Analysis & Preprocessing
+Dataset: Consumer Financial Protection Bureau (CFPB) complaints.
+Challenge: Severe class imbalance (Credit Cards >> Student Loans).
+Solution: Implemented Stratified Sampling to create a balanced dataset of ~12,500 records, ensuring minority products are represented.
+Task 2: Vector Database
+Chunking: RecursiveCharacterTextSplitter (Size: 500, Overlap: 50) to preserve narrative context.
+Embeddings: sentence-transformers/all-MiniLM-L6-v2 (Local, High-performance).
+Storage: ChromaDB for persistent vector storage.
+Task 3: RAG Logic
+Retrieval: Fetches top-k relevant chunks based on semantic similarity.
+Generation: Utilizes Google Flan-T5 (Local) via Hugging Face Pipeline to synthesize answers.
+Prompting: Custom template enforcing the role of a "Financial Analyst".
+Task 4: User Interface
+Framework: Streamlit.
+Features:
+Real-time token streaming (typewriter effect).
+Source Citations: Displays the exact complaint text used to generate the answer for transparency.
+Caching for fast model loading.
 🚀 How to Run the Project
 1. Setup Environment
 code
 Bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/creditrust-complaint-rag.git
+git clone https://github.com/MairegAzanaw/creditrust-complaint-rag.git
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -61,4 +81,4 @@ Bash
 python evaluate_rag.py
 📸 Screenshots
 The CrediTrust Analyst Dashboard
-![CrediTrust AI Dashboard interface showing the chatbot answering a query about credit card complaints with cited source evidence](docs/images/streamlit_screenshot.png)
+![CrediTrust AI Dashboard interface showing the chatbot answering a query about credit card complaints with cited source evidence]docs/streamlit_screenshot.png.png
